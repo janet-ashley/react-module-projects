@@ -1,6 +1,6 @@
 # react-module-projects
 
-## 📚 Mes projets React (Module)
+##  Mes projets React (Module)
 
 
 ---
