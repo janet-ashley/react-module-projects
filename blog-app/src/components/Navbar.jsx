@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../context/AuthContext"
 
 function Navbar() {
 
-  const token = localStorage.getItem("token")
-
-  const logout = () => {
-    localStorage.removeItem("token")
-    window.location.href = "/login"
-  }
+  const { token, logout } = useContext(AuthContext)
 
   return (
     <nav>
@@ -16,11 +13,8 @@ function Navbar() {
 
       {token ? (
         <>
-          <Link to="/create">Créer</Link>
-
-          <Link to="/my-articles">
-            Mes articles
-          </Link>
+          <Link to="/create">Créer un article</Link>
+          <Link to="/my-articles">Mes articles</Link>
 
           <button onClick={logout}>
             Déconnexion
@@ -28,13 +22,8 @@ function Navbar() {
         </>
       ) : (
         <>
-          <Link to="/login">
-            Connexion
-          </Link>
-
-          <Link to="/register">
-            Inscription
-          </Link>
+          <Link to="/login">Connexion</Link>
+          <Link to="/register">Inscription</Link>
         </>
       )}
 
